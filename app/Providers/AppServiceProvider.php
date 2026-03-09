@@ -21,11 +21,11 @@ class AppServiceProvider extends ServiceProvider
      */
 public function boot(): void
 {
-    Filament::serving(function () {
-        if (auth()->check() && !auth()->user()->hasRole('admin')) {
-            abort(403);
-        }
-    });
+    // Filament::serving(function () {
+    //     if (auth()->check() && !auth()->user()->hasRole('admin')) {
+    //         abort(403);
+    //     }
+    // });
 }
 
 }

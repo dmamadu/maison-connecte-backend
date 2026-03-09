@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\BlogPost;
@@ -17,22 +17,9 @@ class BlogPostController extends Controller
             ->get();
     }
 
-    // public function show(BlogPost $post)
-    // {
-    //     return $post->load('category');
-    // }
-
-    public function show($id)
-{
-    $blog = Blog::with('category')->find($id);
-
-    if (!$blog) {
-        return response()->json(['message' => 'Article non trouvé'], 404);
+    // Option A — route model binding (recommandé, plus simple)
+    public function show(BlogPost $post)
+    {
+        return $post->load('category');
     }
-
-    return response()->json($blog);
-}
-
-
-    
 }

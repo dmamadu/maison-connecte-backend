@@ -17,8 +17,13 @@ use App\Http\Controllers\{
     UserController,
     QuoteRequestController,
     AccessoryController,
-    BlogPostController
+    BlogPostController,
+    ProjectTypeController,
+    ProjectController,
+    ClientController
 };
+
+
 
 
 /*
@@ -76,6 +81,27 @@ Route::get('/products/subcategory/{subCategoryId}', [ProductController::class, '
 
 Route::get('/posts', [BlogPostController::class, 'index']);
 Route::get('/posts/{post}', [BlogPostController::class, 'show']);
+
+
+    // Project Types
+    Route::get('/project-types', [ProjectTypeController::class, 'index']);
+    Route::get('/project-types/{projectType:slug}', [ProjectTypeController::class, 'show']);
+
+
+        // Project Types
+    Route::get('/projects', [ProjectController::class, 'index']);
+    Route::get('/project/{project:slug}', [ProjectController::class, 'show']);
+
+
+        // Clients
+    Route::get('/clients', [ClientController::class, 'index']);
+    Route::get('/clients/featured', [ClientController::class, 'featured']);
+    Route::get('/clients/logos', [ClientController::class, 'logos']);
+    Route::get('/clients/statistics', [ClientController::class, 'statistics']);
+    Route::get('/clients/industries', [ClientController::class, 'industries']);
+    Route::get('/clients/search', [ClientController::class, 'search']);
+    Route::get('/clients/by-industry/{industry}', [ClientController::class, 'byIndustry']);
+    Route::get('/clients/{slug}', [ClientController::class, 'show']);
 
 });
 

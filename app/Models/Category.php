@@ -7,15 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
+
 class Category extends Model
 {
-        use HasFactory; // <- Important !
+    protected $fillable = [
+        'slug',
+        'name',
+        'description',
+    ];
 
+    protected $casts = [
+        'name' => 'array',
+        'description' => 'array',
+    ];
 
-    protected $fillable = ['id'];
-
-
-     public function subCategories()
+    public function subCategories()
     {
         return $this->hasMany(SubCategory::class);
     }

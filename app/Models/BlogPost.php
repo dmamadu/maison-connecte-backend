@@ -13,7 +13,13 @@ class BlogPost extends Model
         'image',
         'author',
         'read_time',
-        'published_at'
+        'published_at',
+    ];
+
+    protected $casts = [
+        'title' => 'array',
+        'excerpt' => 'array',
+        'published_at' => 'date',
     ];
 
     public function category()

@@ -10,8 +10,16 @@ class SubCategory extends Model
 {
 
     use HasFactory; // <- Important !
+    protected $fillable = [
+        'category_id',
+        'slug',
+        'name',
+    ];
 
-    protected $fillable = ['category_id', 'name', 'slug', 'description'];
+    protected $casts = [
+        'name' => 'array',
+    ];
+
 
      public function category()
     {
